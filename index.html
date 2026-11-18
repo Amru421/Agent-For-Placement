@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent for Placement</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">🎯 Agent for Placement</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#assistant">AI Assistant</a>
+        <a href="#progress">Progress</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="tag">YOUR PERSONAL PLACEMENT PARTNER</p>
+        <h1>Prepare Today.<br><span>Get Placed Tomorrow.</span></h1>
+        <p>One platform to improve your skills, practice interviews,
+           analyze your resume and prepare for your dream job.</p>
+        <a href="#features" class="main-btn">Start Preparing →</a>
+    </div>
+    <div class="hero-icon">🚀</div>
+</section>
+
+<section class="dashboard">
+    <h2>Placement Dashboard</h2>
+    <div class="stats">
+        <div class="stat-card">
+            <h3 id="completed">0</h3>
+            <p>Tasks Completed</p>
+        </div>
+        <div class="stat-card">
+            <h3 id="score">0%</h3>
+            <p>Placement Readiness</p>
+        </div>
+        <div class="stat-card">
+            <h3>6</h3>
+            <p>Preparation Modules</p>
+        </div>
+    </div>
+</section>
+
+<section class="features" id="features">
+    <h2>Explore Preparation Modules</h2>
+    <p class="section-desc">Choose what you want to prepare today.</p>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🤖</div>
+            <h3>AI Placement Assistant</h3>
+            <p>Ask placement-related questions and get instant guidance.</p>
+            <button onclick="showSection('assistant')">Open Assistant</button>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">📄</div>
+            <h3>Resume Analyzer</h3>
+            <p>Upload your resume and check important resume sections.</p>
+            <button onclick="showSection('resume')">Analyze Resume</button>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">💻</div>
+            <h3>Technical Interview</h3>
+            <p>Practice frequently asked technical interview questions.</p>
+            <button onclick="showSection('technical')">Start Practice</button>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🤝</div>
+            <h3>HR Interview</h3>
+            <p>Prepare answers for common HR interview questions.</p>
+            <button onclick="showSection('hr')">Practice HR</button>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Aptitude Practice</h3>
+            <p>Improve logical reasoning and quantitative aptitude.</p>
+            <button onclick="showSection('aptitude')">Start Test</button>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🏢</div>
+            <h3>Company Preparation</h3>
+            <p>Explore company selection rounds and preparation topics.</p>
+            <button onclick="showSection('companies')">Explore Companies</button>
+        </div>
+    </div>
+</section>
+
+<section class="work-section" id="assistant">
+    <h2>🤖 AI Placement Assistant</h2>
+    <p>Ask questions about placements, interviews, resumes and careers.</p>
+
+    <div class="chat-box">
+        <div class="chat-messages" id="chatMessages">
+            <div class="bot-message">
+                Hello! 👋 I am your Placement Assistant. How can I help you?
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userMessage"
+                   placeholder="Ask your placement question..."
+                   onkeydown="if(event.key==='Enter') sendMessage()">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</section>
+
+<section class="work-section" id="resume">
+    <h2>📄 Resume Analyzer</h2>
+    <p>Upload a text-based resume to check its basic sections.</p>
+    <input type="file" id="resumeFile" accept=".txt,.pdf,.doc,.docx">
+    <button onclick="analyzeResume()">Analyze Resume</button>
+    <div id="resumeResult" class="result"></div>
+</section>
+
+<section class="work-section" id="technical">
+    <h2>💻 Technical Interview Practice</h2>
+    <p>Test your technical interview knowledge.</p>
+    <div id="technicalQuestions" class="question-box"></div>
+</section>
+
+<section class="work-section" id="hr">
+    <h2>🤝 HR Interview Preparation</h2>
+    <div id="hrQuestions" class="question-box"></div>
+</section>
+
+<section class="work-section" id="aptitude">
+    <h2>🧠 Aptitude Practice</h2>
+    <div id="aptitudeQuestions" class="question-box"></div>
+</section>
+
+<section class="work-section" id="companies">
+    <h2>🏢 Company Preparation</h2>
+    <p>Explore popular recruiters and prepare for their selection processes.</p>
+    <div class="company-grid">
+        <div class="company-card">
+            <h3>Google</h3>
+            <p>DSA, problem solving, technical and behavioral interviews.</p>
+        </div>
+        <div class="company-card">
+            <h3>Microsoft</h3>
+            <p>Data structures, algorithms, coding and behavioral rounds.</p>
+        </div>
+        <div class="company-card">
+            <h3>Amazon</h3>
+            <p>DSA, problem solving and leadership principles.</p>
+        </div>
+        <div class="company-card">
+            <h3>Infosys</h3>
+            <p>Aptitude, reasoning, programming and communication.</p>
+        </div>
+        <div class="company-card">
+            <h3>Wipro</h3>
+            <p>Aptitude, verbal ability, coding and interviews.</p>
+        </div>
+        <div class="company-card">
+            <h3>TCS</h3>
+            <p>Numerical ability, reasoning, coding and interview preparation.</p>
+        </div>
+    </div>
+</section>
+
+<section class="work-section" id="progress">
+    <h2>📊 Placement Readiness Tracker</h2>
+    <p>Mark modules as completed to track your preparation.</p>
+    <div id="taskList" class="task-list"></div>
+    <div class="progress-track">
+        <div id="progressBar"></div>
+    </div>
+    <p id="progressText">0% completed</p>
+</section>
+
+<footer>
+    <h3>🎯 Agent for Placement</h3>
+    <p>Your journey towards your dream career starts here.</p>
+    <p>© 2026 Agent for Placement | Educational Project</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
